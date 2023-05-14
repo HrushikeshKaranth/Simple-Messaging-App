@@ -72,6 +72,11 @@ h4 {
   height: 12px;
 }
 
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
 .app {
   font-family: "Inter", sans-serif;
   font-weight: 400;
