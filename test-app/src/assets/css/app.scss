@@ -1,0 +1,77 @@
+@import './format.scss';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+//-----
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1{
+    font-size: $largest;
+    font-weight: $bold;
+}
+h2{
+    font-size: $large;
+    font-weight: $bold;
+}
+h3{
+    font-size: $medium;
+    font-weight: $regular;
+    line-height: 12px;
+}
+h4{
+    font-size: $smallest;
+    font-weight: $regular;
+}
+.primaryColor{
+    color: $primaryColor;
+}
+.bold{
+    font-weight: $bold;
+}
+.center{
+    text-align: center;
+}
+.pointer{
+    cursor: pointer;
+}
+.btnType1{
+    width: 100%;
+    height: 26px;
+    border: none;
+    outline: none;
+    background-color: $bgColor;
+    @extend %flexCenter;
+    gap: 5px;
+    border: 1px solid $secondaryColor;
+    border-radius: 7px;
+    padding: 10px;
+    font-weight: $bold;
+    cursor: pointer;
+}
+.btnType1:active{
+    transform: scale(99%);
+}
+.icon{
+    width: 12px;
+    height: 12px;
+}
+.app{
+    font-family: 'Inter', sans-serif;
+    font-weight: $regular;
+    width: 100%;
+    height: 100vh;
+    margin: auto auto;
+    @extend %flexCenter;
+}
+main{
+    box-shadow: 0px 0px 5px 0px;
+}
+section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin-bottom: 30px;
+}

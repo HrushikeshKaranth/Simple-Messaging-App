@@ -1,0 +1,3 @@
+sass cmd:
+sass --watch app.scss:app.css format.scss:format.css welcomePage.scss:welcomePage.css
+

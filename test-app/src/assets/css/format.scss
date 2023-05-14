@@ -1,0 +1,34 @@
+//colors
+$bgColor: #fff;
+$primaryColor: #575DFB;
+$secondaryColor: #000000;
+//font sizes
+$smallest: 8px;
+$small: 10px;
+$medium: 12px;
+$large: 14px;
+$largest: 18px;
+//font weight
+$bold: 700;
+$regular: 400;
+
+//pre
+%flexCenter {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+%flexStart {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+%flexCenterColumn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
