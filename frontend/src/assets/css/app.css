@@ -154,9 +154,20 @@ input {
   height: 100%;
 }
 
+::-moz-placeholder {
+  font-style: italic;
+  font-size: 8px;
+}
+
 ::placeholder {
   font-style: italic;
   font-size: 8px;
+}
+
+.placeholderCenter ::-moz-placeholder {
+  font-style: italic;
+  font-size: 8px;
+  text-align: center;
 }
 
 .placeholderCenter ::placeholder {
@@ -207,6 +218,4 @@ section {
 
 header {
   gap: 2px;
-}
-
-/*# sourceMappingURL=app.css.map */
+}/*# sourceMappingURL=app.css.map */
