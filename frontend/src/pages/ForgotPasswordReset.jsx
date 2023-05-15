@@ -3,7 +3,9 @@ import { Icon } from '@iconify/react';
 import { useNavigate } from 'react-router-dom';
 //-----
 function ForgotPasswordReset() {
+    // navigation 
     let navigate = useNavigate();
+    
     return (
         <main className='main topAlign'>
             {/* header section */}

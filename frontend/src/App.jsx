@@ -16,7 +16,7 @@ function App() {
 
   // useeffects
   useEffect(() => {
-    // checking if User is authorized, if yes, then give access.
+    // checking if User is authorized, if yes, then giving access.
     if (localStorage.getItem('auth')) {
       setLogin({ ...login, auth: true, token: localStorage.getItem('auth') })
       navigate('/logout');

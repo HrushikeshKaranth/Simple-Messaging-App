@@ -1,9 +1,44 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Icon } from '@iconify/react';
 import { useNavigate } from 'react-router-dom';
+import axios from '../helpers/axios';
 //-----
 function ForgotPassword() {
+  // navigation
   let navigate = useNavigate();
+
+  // states
+  const [isLoading, setIsLoading] = useState(false)
+  const [data, setData] = useState({
+    email:'',
+  });
+
+  // function to handle input changes
+  function handleChange(e){
+    const {value, name} = e.target;
+    setData({...data, [name]: value});
+
+  }
+  // function to handle forgot password
+  function handleForgotPassword(){
+    setIsLoading(true)
+    axios.put('users/2', data)
+    .then((res)=>{
+      console.log(res.data);
+      setIsLoading(false)
+    })
+    .catch((err)=>{
+      console.log(err.response.data.error);
+      setIsLoading(false)
+    })
+  }
+
+  //clean up
+  useEffect(()=>{
+    return ()=>{
+      setIsLoading(false)
+    }
+  },[])
   return (
     <main className='main topAlign'>
       {/* header section */}
@@ -20,12 +55,13 @@ function ForgotPassword() {
           <label htmlFor="email">Email</label>
           <div>
             <Icon icon="mdi:at" className='primaryColor icon' />
-            <input type="email" placeholder='Ex: abc@example.com' />
+            <input type="email" name='email' placeholder='Ex: abc@example.com'
+            value={data.email} onChange={handleChange} /> 
           </div>
         </div>
 
         {/* button */}
-        <button className='btnType2 my10' onClick={() => { navigate('/forgot-password-otp') }}>Submit</button>
+        <button className='btnType2 my10' onClick={handleForgotPassword}>{isLoading ? <Icon icon="eos-icons:loading" />: 'Submit'}</button>
       </form>
     </main>
   )

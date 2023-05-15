@@ -26,6 +26,7 @@ function LoginPage() {
         setLogin({ ...login, auth: true, token: res.data.token }); // setting token
         localStorage.setItem('auth', res.data.token); // setting token in localstorage
         console.log('Logged in Successfully!');
+        console.log(res.data.token);
         setIsLoading(false);
         navigate('/logout'); // redirecting to logout page
       })

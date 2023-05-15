@@ -1,7 +1,6 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { Icon } from '@iconify/react';
 import { useNavigate } from 'react-router-dom';
-import axios from '../helpers/axios';
 import { AuthContext } from '../helpers/context';
 //-----
 function LogoutPage() {
