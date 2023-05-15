@@ -28,12 +28,12 @@ function RegisterPage() {
       .then((res) => {
         setIsLoading(false)
         console.log(res.data);
-        console.log('Registered Successfully!');
+        alert('Registered Successfully!');
         navigate('/login'); // redirecting to login page after registration.
       })
       .catch((err) => {
         setIsLoading(false);
-        console.error(err.response.data.error);
+        alert(err.response.data.error);
       })
   }
 

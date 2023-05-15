@@ -24,14 +24,14 @@ function LoginPage() {
       .then((res) => {
         setLogin({ ...login, auth: true, token: res.data.token }); // setting token
         localStorage.setItem('auth', res.data.token); // setting token in localstorage
-        console.log('Logged in Successfully!');
+        alert('Logged in Successfully!');
         console.log(res.data.token);
         setIsLoading(false);
         navigate('/welcome'); // redirecting to logout page
       })
       .catch((err) => {
         setIsLoading(false);
-        console.error(err.response.data.error);
+        alert(err.response.data.error);
       })
   }
 

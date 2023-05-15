@@ -30,7 +30,7 @@ function LogoutPage() {
     function handleLogout() {
         localStorage.removeItem('auth'); // removing token variable from localstorage.
         setLogin({ ...login, auth: false, token: '' });
-        console.log('Logged out!');
+        alert('Logged out!');
         socket.send('hello');
         navigate('/'); // redirecting to welcome page.
     }
