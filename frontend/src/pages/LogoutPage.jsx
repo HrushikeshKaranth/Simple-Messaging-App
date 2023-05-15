@@ -45,14 +45,14 @@ function LogoutPage() {
             </header>
             {/* sending message */}
             <section>
-                <input type="text" placeholder='Message...'
+                <input type="text" placeholder='Type Message'
                 onChange={(e)=>{setMessage(e.target.value)}} />
                 <button className='btnType2' onClick={sendMessage}>Send </button>
             </section>
             {/* displaying received message  */}
             <section>
                 <h3>Message:</h3>
-                <h4>{messageReceived}</h4>
+                <h4 className='messageBox'>{messageReceived}</h4>
             </section>
             {/* Logout */}
             <section>

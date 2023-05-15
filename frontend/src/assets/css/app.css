@@ -187,6 +187,11 @@ input {
   border-bottom: 1px solid #000000;
 }
 
+.messageBox {
+  width: 100%;
+  overflow-wrap: break-word;
+}
+
 .app {
   font-family: "Inter", sans-serif;
   font-weight: 400;

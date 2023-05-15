@@ -198,6 +198,12 @@ input {
     border-bottom: 1px solid $secondaryColor;
 }
 
+// styling message
+.messageBox{
+    width: 100%;
+    overflow-wrap: break-word;
+}
+
 //app
 .app {
     font-family: 'Inter', sans-serif;
