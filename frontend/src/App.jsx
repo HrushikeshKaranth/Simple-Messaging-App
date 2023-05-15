@@ -7,6 +7,7 @@ function App() {
     <div className="app">
       <BrowserRouter>
         <Routes>
+          {/* mapping all the routes */}
           {routes.map((route) => {
             return <Route key={route.id} path={route.path} element={route.element} />
           })}

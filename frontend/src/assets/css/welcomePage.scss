@@ -1,18 +1,16 @@
 @import './format.scss';
+
 //-----
-.main{
-    width: 190px;
-    height: 412px;
+.main {
     @extend %flexCenterColumn;
-    padding: 30px 10px;
-    border-radius: 35px;
 }
-.buttons{
+
+.buttons {
     width: 100%;
     @extend %flexCenterColumn;
     gap: 7px;
 }
-.section2{
+
+.section2 {
     gap: 10px;
 }
-

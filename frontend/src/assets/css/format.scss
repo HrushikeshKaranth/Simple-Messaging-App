@@ -2,42 +2,42 @@
 $bgColor: #fff;
 $primaryColor: #575DFB;
 $secondaryColor: #000000;
+
 //font sizes
-$tiny:6px;
+$tiny: 6px;
 $smallest: 8px;
 $small: 10px;
 $medium: 12px;
 $large: 14px;
 $largest: 18px;
-//font weight
+
+//font weights
 $bold: 700;
 $regular: 400;
-$thin:300;
+$thin: 300;
 
-//pre
+//common
 %flexCenter {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
+%flexCenterColumn {
+    @extend %flexCenter;
+    flex-direction: column;
+}
+
 %flexStart {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
 }
+
 %flexStartColumn {
-    width: 100%;
-    display: flex;
+    @extend %flexStart;
     align-items: flex-start;
-    justify-content: flex-start;
-    flex-direction: column;
-}
-%flexCenterColumn {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
 }

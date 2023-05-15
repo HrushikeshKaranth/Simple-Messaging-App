@@ -1,4 +1,5 @@
 @import './format.scss';
+// font : 'Inter'
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 //-----
@@ -8,6 +9,7 @@
     box-sizing: border-box;
 }
 
+// text formats
 h1 {
     font-size: $largest;
     font-weight: $bold;
@@ -28,27 +30,40 @@ h4 {
     font-size: $smallest;
     font-weight: $regular;
 }
+
 h5 {
     font-size: $tiny;
     font-weight: $regular;
-}
-
-.primaryColor {
-    color: $primaryColor;
 }
 
 .bold {
     font-weight: $bold;
 }
 
+// color formats
+.primaryColor {
+    color: $primaryColor;
+}
+
+// alignments
 .center {
     text-align: center;
 }
 
+.centerAlign {
+    @extend %flexCenterColumn;
+}
+
+.topAlign {
+    @extend %flexStartColumn;
+}
+
+//cursor pointer
 .pointer {
     cursor: pointer;
 }
 
+//button styles
 .btnType1 {
     width: 100%;
     height: 26px;
@@ -82,18 +97,18 @@ h5 {
     font-weight: $bold;
     cursor: pointer;
 }
+
 .btnType2:active {
     transform: scale(99%);
 }
+
+// icon styles
 .icon {
     width: 12px;
     height: 12px;
 }
 
-.line{
-    width: 100%;
-    border-bottom: 1px solid $secondaryColor;
-}
+// margins
 .mb5 {
     margin-bottom: 5px;
 }
@@ -106,11 +121,13 @@ h5 {
     margin: 10px 0;
 }
 
+// hyperlinks style
 a {
     text-decoration: none;
     color: $secondaryColor;
 }
 
+// form and from elements styles
 form {
     width: 100%;
     padding: 0;
@@ -134,17 +151,31 @@ input {
     height: 100%;
 }
 
+//input placeholder style
 ::placeholder {
     font-style: italic;
     font-size: $smallest;
 }
-.placeholderCenter{
+
+::-webkit-input-placeholder {
+    font-style: italic;
+    font-size: $smallest;
+}
+
+.placeholderCenter {
     ::placeholder {
         font-style: italic;
         font-size: $smallest;
         text-align: center;
     }
+
+    ::-webkit-input-placeholder {
+        font-style: italic;
+        font-size: $smallest;
+        text-align: center;
+    }
 }
+
 .inputSection {
     width: 100%;
     @extend %flexStartColumn;
@@ -161,6 +192,13 @@ input {
 
 }
 
+// creating line
+.line {
+    width: 100%;
+    border-bottom: 1px solid $secondaryColor;
+}
+
+//app
 .app {
     font-family: 'Inter', sans-serif;
     font-weight: $regular;
@@ -170,10 +208,7 @@ input {
     @extend %flexCenter;
 }
 
-main {
-    box-shadow: 0px 0px 5px 0px;
-}
-
+// main
 .main {
     width: 190px;
     height: 412px;
@@ -182,12 +217,8 @@ main {
     gap: 20px;
 }
 
-.centerAlign {
-    @extend %flexCenterColumn;
-}
-
-.topAlign {
-    @extend %flexStartColumn;
+main {
+    box-shadow: 0px 0px 5px 0px;
 }
 
 section {
