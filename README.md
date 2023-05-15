@@ -23,3 +23,14 @@ cd src/assets/css
 sass --watch app.scss:app.css format.scss:format.css welcomePage.scss:welcomePage.css
 ```
 + This will run the Sass compiler.
+
+> Running the server
+
++ Change directory to server and run below commands.
+```
+npm install
+```
+```
+npm start
+```
++ This will start the server.
