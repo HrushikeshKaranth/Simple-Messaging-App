@@ -22,7 +22,7 @@ function App() {
       navigate('/welcome');
       console.log('Logged in');
     }
-    else { console.error('Need new Login'); }
+    else { console.error('Need to Login again'); }
 
   }, [])
 
