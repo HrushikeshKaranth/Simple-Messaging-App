@@ -9,9 +9,6 @@ DoozieSoft - Technical round
 + change directory to 'frontend'.
 + After that run the below commands one after the another.
 ```
-cd frontend
-```
-```
 npm install
 ```
 ```
