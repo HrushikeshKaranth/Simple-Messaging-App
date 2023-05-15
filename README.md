@@ -7,15 +7,22 @@ DoozieSoft - Technical round
 ## Steps to run this project 👍
 + Clone this repository!
 + change directory to 'frontend'.
-+ After that run the below commands one after.
++ After that run the below commands one after the another.
 ```
-> cd frontend
-> npm install
-> npm start
+cd frontend
+```
+```
+npm install
+```
+```
+npm start
 ```
 + If Live Sass Compiler is not installed then we need to manually run the compiler.
 + Now open a new console in 'frontend' directory and run below commands.
 ```
-> cd src/assets/css
-> sass --watch app.scss:app.css format.scss:format.css welcomePage.scss:welcomePage.css
+cd src/assets/css
+```
+```
+sass --watch app.scss:app.css format.scss:format.css welcomePage.scss:welcomePage.css
+```
 + This will run the Sass compiler.
