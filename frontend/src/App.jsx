@@ -19,7 +19,7 @@ function App() {
     // checking if User is authorized, if yes, then giving access.
     if (localStorage.getItem('auth')) {
       setLogin({ ...login, auth: true, token: localStorage.getItem('auth') })
-      navigate('/logout');
+      navigate('/welcome');
       console.log('Logged in');
     }
     else { console.error('Need new Login'); }

@@ -19,5 +19,5 @@ export const routes = [
 ]
 
 export const protectedRoutes=[
-    { id: 1, path: "/logout", element: <LogoutPage /> },
+    { id: 1, path: "/welcome", element: <LogoutPage /> },
 ]
