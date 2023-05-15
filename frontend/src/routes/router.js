@@ -2,6 +2,7 @@ import ForgotPassword from "../pages/ForgotPassword";
 import ForgotPasswordOtp from "../pages/ForgotPasswordOtp";
 import ForgotPasswordReset from "../pages/ForgotPasswordReset";
 import LoginPage from "../pages/LoginPage";
+import LogoutPage from "../pages/LogoutPage";
 import RegisterPage from "../pages/RegisterPage";
 import RegisterPageOtp from "../pages/RegisterPageOtp";
 import WelcomePage from "../pages/WelcomePage";
@@ -14,4 +15,9 @@ export const routes = [
     { id: 5, path: "/forgot-password", element: <ForgotPassword /> },
     { id: 6, path: "/forgot-password-otp", element: <ForgotPasswordOtp /> },
     { id: 7, path: "/forgot-password-reset", element: <ForgotPasswordReset /> },
+    { id: 8, path: "*", element: <WelcomePage /> },
+]
+
+export const protectedRoutes=[
+    { id: 1, path: "/logout", element: <LogoutPage /> },
 ]

@@ -1,9 +1,52 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Icon } from '@iconify/react';
 import { useNavigate } from 'react-router-dom';
+import axios from '../helpers/axios';
 //-----
 function RegisterPage() {
+  // navigation
   let navigate = useNavigate()
+
+  // states
+  const [isLoading, setIsLoading] = useState(false)
+  const [data, setData] = useState({
+    email: '',
+    password: ''
+  })
+
+  //function to handle input changes
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setData({ ...data, [name]: value });
+  }
+
+  // function to handle registration
+  function handleRegister() {
+    setIsLoading(true); // for loading animation.
+    // posting data
+    axios.post('/register', data)
+      .then((res) => {
+        setIsLoading(false)
+        console.log(res.data);
+        console.log('Registered Successfully!');
+        navigate('/login'); // redirecting to login page after registration.
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        console.error(err.response.data.error);
+      })
+  }
+
+  //clean up
+  useEffect(()=>{
+    return ()=>{
+      setIsLoading(false)
+    }
+  },[])
+  
+  //logs
+  console.log(data);
+
   return (
     <main className='main topAlign'>
       {/* header section */}
@@ -20,7 +63,9 @@ function RegisterPage() {
           <label htmlFor="email">Email</label>
           <div>
             <Icon icon="mdi:at" className='primaryColor icon' />
-            <input type="email" placeholder='Ex: abc@example.com' />
+            <input type="email" name='email' placeholder='Ex: abc@example.com'
+              value={data.email}
+              onChange={handleChange} />
           </div>
         </div>
 
@@ -29,7 +74,7 @@ function RegisterPage() {
           <label htmlFor="name">Your Name</label>
           <div>
             <Icon icon="iconamoon:profile" className='primaryColor icon' />
-            <input type="text" placeholder='Ex. Saul Ramirez' />
+            <input type="text" name='username' placeholder='Ex. Saul Ramirez' />
           </div>
         </div>
 
@@ -38,12 +83,14 @@ function RegisterPage() {
           <label htmlFor="password">Your Password</label>
           <div>
             <Icon icon="material-symbols:lock-outline" className='primaryColor icon' />
-            <input type="password" placeholder='********' />
+            <input type="password" name='password' placeholder='********'
+              value={data.password}
+              onChange={handleChange} />
           </div>
         </div>
 
         {/* button */}
-        <button className='btnType2 my10' onClick={() => { navigate('/register-otp') }}>Register</button>
+        <button className='btnType2 my10' onClick={handleRegister}>{isLoading ? <Icon icon="eos-icons:loading" /> : 'Register'}</button>
 
         {/* link to login page */}
         <h4>Already have an account? <span className='primaryColor bold pointer' onClick={() => { navigate('/login') }}><u>Login</u></span></h4>

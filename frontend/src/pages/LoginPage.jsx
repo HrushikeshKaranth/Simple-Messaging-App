@@ -1,9 +1,56 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Icon } from '@iconify/react';
 import { useNavigate } from 'react-router-dom';
+import axios from '../helpers/axios';
+import { AuthContext } from '../helpers/context';
 //-----
 function LoginPage() {
+  // navigation
   let navigate = useNavigate()
+
+  //states
+  const [isLoading, setIsLoading] = useState(false)
+  const [login, setLogin] = useContext(AuthContext)
+  const [data, setData] = useState({
+    email: '',
+    password: ''
+  })
+
+  // function to handle login
+  function handleLogin() {
+    setIsLoading(true); // for loading animation
+    // posting login data
+    axios.post('/login', data)
+      .then((res) => {
+        console.log(res);
+        setLogin({ ...login, auth: true, token: res.data.token }); // setting token
+        localStorage.setItem('auth', res.data.token); // setting token in localstorage
+        console.log('Logged in Successfully!');
+        setIsLoading(false);
+        navigate('/logout'); // redirecting to logout page
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        console.error(err.response.data.error);
+      })
+  }
+
+  // function to handle input changes
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setData({ ...data, [name]: value });
+  }
+
+  // Clean up
+  useEffect(()=>{
+    return ()=>{
+      setIsLoading(false);
+    }
+  },[])
+
+  //logs
+  console.log(data);
+
   return (
     <main className='main topAlign'>
       {/* header section */}
@@ -20,7 +67,9 @@ function LoginPage() {
           <label htmlFor="email">Email</label>
           <div>
             <Icon icon="mdi:at" className='primaryColor icon' />
-            <input type="email" placeholder='Ex: abc@example.com' />
+            <input type="email" name='email' placeholder='Ex: abc@example.com'
+              value={data.email}
+              onChange={handleChange} />
           </div>
         </div>
 
@@ -29,7 +78,9 @@ function LoginPage() {
           <label htmlFor="password">Your Password</label>
           <div>
             <Icon icon="material-symbols:lock-outline" className='primaryColor icon' />
-            <input type="password" placeholder='********' />
+            <input type="password" name='password' placeholder='********'
+              value={data.password}
+              onChange={handleChange} />
           </div>
 
           {/* link to forgot password page */}
@@ -37,7 +88,9 @@ function LoginPage() {
         </div>
 
         {/* button */}
-        <button className='btnType2 my5'>Login</button>
+        <button className='btnType2 my5'
+          onClick={handleLogin}
+        >{!isLoading ? 'Login': <Icon icon="eos-icons:loading" />}</button>
 
         {/* divider */}
         <div className='line'></div>
