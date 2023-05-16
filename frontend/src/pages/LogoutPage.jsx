@@ -11,7 +11,7 @@ function LogoutPage() {
 
     // states
     const [message, setMessage] = useState("")
-    const [messageReceived, setMessageReceived] = useState("")
+    const [messageReceived, setMessageReceived] = useState([])
     const [login, setLogin] = useContext(AuthContext)
 
     // function to send messages
@@ -22,7 +22,8 @@ function LogoutPage() {
     // listening to incoming messages
     useEffect(() => {
         socket.on('receive_message', (data) => {
-            setMessageReceived(data.message);
+            console.log(data);
+            setMessageReceived([data.message]);
         })
     }, [socket])
 
@@ -35,6 +36,8 @@ function LogoutPage() {
         navigate('/'); // redirecting to welcome page.
     }
 
+    //logs
+    console.log(messageReceived);
     return (
         <main className='topAlign messageMain'>
             {/* header section */}
@@ -52,7 +55,7 @@ function LogoutPage() {
             {/* displaying received message  */}
             <section>
                 <h3>Message:</h3>
-                <h4 className='messageBox'>{messageReceived}</h4>
+                <h4 className='messageBox'>{messageReceived.map((msg)=>{return msg})}</h4>
             </section>
             {/* Logout */}
             <section>
