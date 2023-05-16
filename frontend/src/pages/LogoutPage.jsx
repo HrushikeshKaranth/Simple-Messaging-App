@@ -36,16 +36,16 @@ function LogoutPage() {
     }
 
     return (
-        <main className='main topAlign'>
+        <main className='topAlign messageMain'>
             {/* header section */}
-            <header className='header'>
+            <header className='header messageHeader'>
                 <Icon icon="ic:round-keyboard-backspace" className='mb5 pointer' onClick={() => { navigate('/login') }} />
                 <h2 className='primaryColor bold'>Welcome</h2>
                 <h4>Save all your work and Logout!</h4>
             </header>
             {/* sending message */}
-            <section>
-                <input type="text" placeholder='Type Message'
+            <section className='typeMessage'>
+                <input type="text" className='messageInput' placeholder='Type Message'
                     onChange={(e) => { setMessage(e.target.value) }} />
                 <button className='btnType2' onClick={sendMessage}>Send </button>
             </section>
