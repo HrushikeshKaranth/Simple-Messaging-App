@@ -6,6 +6,7 @@ import LandingPage from "../pages/LandingPage";
 import RegisterPage from "../pages/RegisterPage";
 import RegisterPageOtp from "../pages/RegisterPageOtp";
 import WelcomePage from "../pages/WelcomePage";
+import SelectRoomPage from "../pages/SelectRoomPage";
 
 export const routes = [
     { id: 1, path: "/", element: <WelcomePage /> },
@@ -19,6 +20,7 @@ export const routes = [
 ]
 
 export const protectedRoutes=[
-    { id: 1, path: "/welcome", element: <LandingPage /> },
-    { id: 2, path: "*", element: <LandingPage /> },
+    { id: 1, path: "/welcome", element: <SelectRoomPage /> },
+    { id: 2, path: "/message", element: <LandingPage /> },
+    { id: 3, path: "*", element: <SelectRoomPage /> },
 ]

@@ -12,11 +12,12 @@
     margin-bottom: 10px;
 }
 
-.split{
+.split {
     display: flex;
     gap: 5px;
 }
-.btnType3{
+
+.btnType3 {
     width: max-content;
     height: 20px;
     border: none;
@@ -31,7 +32,8 @@
     font-weight: $bold;
     cursor: pointer;
 }
-.logout{
+
+.logout {
     width: max-content;
     height: 20px;
     border: none;
@@ -47,12 +49,13 @@
     font-weight: $bold;
     cursor: pointer;
 }
+
 .typeMessage {
     width: 100%;
     margin-bottom: 10px;
 }
 
-.messageInput{
+.messageInput {
     width: 100%;
     margin-bottom: 5px;
     border: 1px solid gray;
@@ -60,18 +63,93 @@
     height: 20px;
 }
 
-.messageContainer{
+.messageContainer {
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
+
 .messageBox {
     width: 100%;
-    height: 160px;
+    height: 200px;
     border: 1px solid gray;
     border-radius: 5px;
     padding: 5px 5px;
     overflow-wrap: break-word;
-    overflow-y: auto;
+    margin-bottom: 15px;
+
+    ::-webkit-scrollbar {
+        width: 0;
+    }
+}
+
+.messages {
+    width: 100%;
     margin-bottom: 10px;
+    display: flex;
+
+    div {
+        div {
+            border-radius: 5px;
+            padding: 3px;
+            width: max-content;
+        }
+
+        span {
+            display: flex;
+            gap: 5px;
+            margin-left: 5px;
+        }
+    }
+}
+
+#myBg {
+    align-items: flex-end;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+
+    div {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        div {
+            width: 100%;
+            
+            h3 {
+                color: white;
+                background-color: $primaryColor;
+                border-radius: 5px;
+                padding: 3px;
+                width: 100%;
+            }
+
+        }
+    }
+}
+
+#otherBg {
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    div {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        div {
+            width: 100%;
+            
+            h3 {
+                width: 100%;
+                color: white;
+                background-color: #4db193;
+                border-radius: 5px;
+                padding: 3px;
+            }
+        }
+    }
 }
