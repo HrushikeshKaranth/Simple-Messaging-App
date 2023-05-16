@@ -3,9 +3,9 @@ import { Icon } from '@iconify/react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../helpers/context';
 import ScrollToBottom from 'react-scroll-to-bottom'
-import { io } from 'socket.io-client'
 import '../assets/css/landingPage.css'
 //-----
+
 function LandingPage({ socket, username, room, showChat }) {
     // navigation
     let navigate = useNavigate()
@@ -57,7 +57,6 @@ function LandingPage({ socket, username, room, showChat }) {
             <header className='header messageHeader'>
                 <Icon icon="ic:round-keyboard-backspace" className='mb5 pointer' onClick={() => { showChat(false) }} />
                 <h2 className='primaryColor bold'>Welcome</h2>
-                {/* <h4>Save all your work and Logout!</h4> */}
             </header>
 
             {/* sending message */}
@@ -68,9 +67,8 @@ function LandingPage({ socket, username, room, showChat }) {
                     onKeyPress={(e) => { e.key === 'Enter' && sendMessage(); }} />
 
                 <button className='btnType3' onClick={sendMessage}>Send </button>
-
             </div>
-            
+
             {/* displaying received message  */}
             <div className='messageContainer'>
                 <h4>Room Id: {room}</h4>

@@ -8,6 +8,7 @@ app.use(cors());
 
 // creating server
 const server = http.createServer(app);
+
 // creating instance of Server class from socket.io
 const io = new Server(server, {
     cors: {

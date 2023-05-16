@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { Icon } from '@iconify/react';
+import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../helpers/context';
 import { io } from 'socket.io-client'
