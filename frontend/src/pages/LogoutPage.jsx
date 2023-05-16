@@ -23,10 +23,10 @@ function LogoutPage() {
     // listening to incoming messages
     useEffect(() => {
         socket.on('receive_message', (data) => {
-            console.log(data);
-            setMessageReceived([data.message]);
-        })
+            setMessageReceived( prev => [...prev, data.message]);
+        });
     }, [socket])
+    console.log(messageReceived);
 
     // function to handle logout
     function handleLogout() {
@@ -38,7 +38,7 @@ function LogoutPage() {
     }
 
     //logs
-    console.log(messageReceived);
+
     return (
         <main className='topAlign messageMain'>
             {/* header section */}
