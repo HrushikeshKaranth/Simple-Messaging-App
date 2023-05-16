@@ -21,6 +21,5 @@ export const routes = [
 
 export const protectedRoutes=[
     { id: 1, path: "/welcome", element: <SelectRoomPage /> },
-    { id: 2, path: "/message", element: <LandingPage /> },
-    { id: 3, path: "*", element: <SelectRoomPage /> },
+    { id: 2, path: "*", element: <SelectRoomPage /> },
 ]
