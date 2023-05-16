@@ -15,17 +15,17 @@ function LogoutPage() {
     const [login, setLogin] = useContext(AuthContext)
 
     // function to send messages
-    const sendMessage = () =>{
-        socket.emit('send_message', {message})
+    const sendMessage = () => {
+        socket.emit('send_message', { message })
     };
 
     // listening to incoming messages
-    useEffect(()=>{
-        socket.on('receive_message', (data)=>{
+    useEffect(() => {
+        socket.on('receive_message', (data) => {
             setMessageReceived(data.message);
         })
-    },[socket])
-    
+    }, [socket])
+
     // function to handle logout
     function handleLogout() {
         localStorage.removeItem('auth'); // removing token variable from localstorage.
@@ -46,7 +46,7 @@ function LogoutPage() {
             {/* sending message */}
             <section>
                 <input type="text" placeholder='Type Message'
-                onChange={(e)=>{setMessage(e.target.value)}} />
+                    onChange={(e) => { setMessage(e.target.value) }} />
                 <button className='btnType2' onClick={sendMessage}>Send </button>
             </section>
             {/* displaying received message  */}

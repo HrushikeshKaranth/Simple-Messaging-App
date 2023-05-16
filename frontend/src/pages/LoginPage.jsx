@@ -11,10 +11,7 @@ function LoginPage() {
   //states
   const [isLoading, setIsLoading] = useState(false)
   const [login, setLogin] = useContext(AuthContext)
-  const [data, setData] = useState({
-    email: '',
-    password: ''
-  })
+  const [data, setData] = useState({ email: '', password: '' })
 
   // function to handle login
   function handleLogin() {
@@ -36,17 +33,10 @@ function LoginPage() {
   }
 
   // function to handle input changes
-  function handleChange(e) {
-    const { name, value } = e.target;
-    setData({ ...data, [name]: value });
-  }
+  function handleChange(e) { setData({ ...data, [e.target.name]: e.target.value }); }
 
-  // Clean up
-  useEffect(()=>{
-    return ()=>{
-      setIsLoading(false);
-    }
-  },[])
+  // Cleanup
+  useEffect(() => { return () => { setIsLoading(false); } }, [])
 
   //logs
   console.log(data);
@@ -90,7 +80,7 @@ function LoginPage() {
         {/* button */}
         <button className='btnType2 my5'
           onClick={handleLogin}
-        >{!isLoading ? 'Login': <Icon icon="eos-icons:loading" />}</button>
+        >{!isLoading ? 'Login' : <Icon icon="eos-icons:loading" />}</button>
 
         {/* divider */}
         <div className='line'></div>

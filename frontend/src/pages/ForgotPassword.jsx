@@ -9,36 +9,29 @@ function ForgotPassword() {
 
   // states
   const [isLoading, setIsLoading] = useState(false)
-  const [data, setData] = useState({
-    email:'',
-  });
+  const [data, setData] = useState({ email: '' });
 
   // function to handle input changes
-  function handleChange(e){
-    const {value, name} = e.target;
-    setData({...data, [name]: value});
+  function handleChange(e) { setData({ ...data, [e.target.name]: e.target.value }); }
 
-  }
   // function to handle forgot password
-  function handleForgotPassword(){
-    setIsLoading(true)
+  function handleForgotPassword() {
+    setIsLoading(true);
+
     axios.put('users/2', data)
-    .then((res)=>{
-      console.log(res.data);
-      setIsLoading(false)
-    })
-    .catch((err)=>{
-      console.log(err.response.data.error);
-      setIsLoading(false)
-    })
+      .then((res) => {
+        console.log(res.data);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        alert(err.response.data.error);
+        setIsLoading(false);
+      })
   }
 
-  //clean up
-  useEffect(()=>{
-    return ()=>{
-      setIsLoading(false)
-    }
-  },[])
+  //cleanup
+  useEffect(() => { return () => { setIsLoading(false) } }, []);
+
   return (
     <main className='main topAlign'>
       {/* header section */}
@@ -56,12 +49,17 @@ function ForgotPassword() {
           <div>
             <Icon icon="mdi:at" className='primaryColor icon' />
             <input type="email" name='email' placeholder='Ex: abc@example.com'
-            value={data.email} onChange={handleChange} /> 
+              value={data.email} onChange={handleChange} />
           </div>
         </div>
 
         {/* button */}
-        <button className='btnType2 my10' onClick={handleForgotPassword}>{isLoading ? <Icon icon="eos-icons:loading" />: 'Submit'}</button>
+        <button
+          className='btnType2 my10'
+          onClick={handleForgotPassword}>
+          {isLoading ? <Icon icon="eos-icons:loading" /> : 'Submit'}
+        </button>
+
       </form>
     </main>
   )

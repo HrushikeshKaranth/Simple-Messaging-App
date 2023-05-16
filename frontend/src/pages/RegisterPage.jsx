@@ -9,16 +9,10 @@ function RegisterPage() {
 
   // states
   const [isLoading, setIsLoading] = useState(false)
-  const [data, setData] = useState({
-    email: '',
-    password: ''
-  })
+  const [data, setData] = useState({ email: '', password: '' })
 
   //function to handle input changes
-  function handleChange(e) {
-    const { name, value } = e.target;
-    setData({ ...data, [name]: value });
-  }
+  function handleChange(e) { setData({ ...data, [e.target.name]: e.target.value }); }
 
   // function to handle registration
   function handleRegister() {
@@ -26,7 +20,7 @@ function RegisterPage() {
     // posting data
     axios.post('/register', data)
       .then((res) => {
-        setIsLoading(false)
+        setIsLoading(false);
         console.log(res.data);
         alert('Registered Successfully!');
         navigate('/login'); // redirecting to login page after registration.
@@ -37,13 +31,9 @@ function RegisterPage() {
       })
   }
 
-  //clean up
-  useEffect(()=>{
-    return ()=>{
-      setIsLoading(false)
-    }
-  },[])
-  
+  //cleanup
+  useEffect(() => { return () => { setIsLoading(false) } }, [])
+
   //logs
   console.log(data);
 
