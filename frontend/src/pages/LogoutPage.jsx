@@ -16,7 +16,8 @@ function LogoutPage() {
 
     // function to send messages
     const sendMessage = () => {
-        socket.emit('send_message', { message })
+        socket.emit('send_message', { message });
+        setMessage('')
     };
 
     // listening to incoming messages
@@ -49,13 +50,15 @@ function LogoutPage() {
             {/* sending message */}
             <section className='typeMessage'>
                 <input type="text" className='messageInput' placeholder='Type Message'
-                    onChange={(e) => { setMessage(e.target.value) }} />
+                    value={message}
+                    onChange={(e) => { setMessage(e.target.value) }} 
+                    onKeyPress={(e)=>{e.key === 'Enter' && sendMessage();}}/>
                 <button className='btnType2' onClick={sendMessage}>Send </button>
             </section>
             {/* displaying received message  */}
             <section>
                 <h3>Message:</h3>
-                <h4 className='messageBox'>{messageReceived.map((msg)=>{return msg})}</h4>
+                <h4 className='messageBox'>{messageReceived.map((msg) => { return msg })}</h4>
             </section>
             {/* Logout */}
             <section>
