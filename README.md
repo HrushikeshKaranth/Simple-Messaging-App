@@ -34,3 +34,6 @@ npm install
 npm start
 ```
 + This will start the server.
+
+> Chat Feature
++ After login, run two instance of the app in different tabs of the browser and we can send messages to each app.
