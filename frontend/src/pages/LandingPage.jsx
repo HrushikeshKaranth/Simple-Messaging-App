@@ -5,7 +5,6 @@ import { AuthContext } from '../helpers/context';
 import ScrollToBottom from 'react-scroll-to-bottom'
 import { io } from 'socket.io-client'
 import '../assets/css/landingPage.css'
-// const socket = io.connect('http://localhost:3001');// creating connection to server
 //-----
 function LandingPage({ socket, username, room, showChat }) {
     // navigation
@@ -71,6 +70,7 @@ function LandingPage({ socket, username, room, showChat }) {
                 <button className='btnType3' onClick={sendMessage}>Send </button>
 
             </div>
+            
             {/* displaying received message  */}
             <div className='messageContainer'>
                 <h4>Room Id: {room}</h4>
@@ -95,6 +95,7 @@ function LandingPage({ socket, username, room, showChat }) {
                     </ScrollToBottom>
                 </>
             </div>
+
             {/* Logout */}
             <div>
                 <button className='my5 logout'

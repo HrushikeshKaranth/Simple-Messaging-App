@@ -17,19 +17,13 @@ function SelectRoomPage() {
     const [username, setUsername] = useState("")
     const [login, setLogin] = useContext(AuthContext)
 
+    // function to join room
     function joinRoom() {
         if (username !== ' && rom !== ') {
             socket.emit("join_room", room);
             setShowChat(true);
         }
     }
-
-    // // listening to incoming messages
-    // useEffect(() => {
-    //     socket.on('receive_message', (data) => {
-    //         setMessageReceived(prev => [...prev, data.message]);
-    //     });
-    // }, [socket])
 
     // function to handle logout
     function handleLogout() {
@@ -47,11 +41,11 @@ function SelectRoomPage() {
                 <>
                     {/* header section */}
                     <header className='header messageHeader'>
-                        {/* <Icon icon="ic:round-keyboard-backspace" className='mb5 pointer' onClick={() => { navigate('/login') }} /> */}
                         <h2 className='primaryColor bold'>Welcome</h2>
                         <h4>Enter Room and Username!</h4>
                     </header>
-                    {/* sending message */}
+
+                    {/* joining room */}
                     <div className='typeMessage'>
                         <input type="text" className='messageInput' placeholder='Type Room name or id'
                             value={room}
