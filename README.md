@@ -36,4 +36,5 @@ npm start
 + This will start the server.
 
 > Chat Feature
-+ After login, run two instance of the app in different tabs of the browser and we can send messages to each app.
++ After login, run two instance of the app in different tabs of the browser.
++ Enter same room id in both the instances and we can exchange messages between apps.
