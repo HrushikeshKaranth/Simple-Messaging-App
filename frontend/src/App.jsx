@@ -34,7 +34,7 @@ function App() {
       <AuthContext.Provider value={[login, setLogin]}>
         <Routes>
           {/* mapping all the routes */}
-          {routes.map((route) => {
+          {!login.auth && routes.map((route) => {
             return <Route key={route.id} path={route.path} element={route.element} />
           })}
 
