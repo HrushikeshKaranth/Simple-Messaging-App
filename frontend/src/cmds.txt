@@ -1,3 +1,3 @@
 sass command:
-sass --watch app.scss:app.css format.scss:format.css welcomePage.scss:welcomePage.css
+sass --watch app.scss:app.css format.scss:format.css welcomePage.scss:welcomePage.css landingPage.scss:landingPage.css
 

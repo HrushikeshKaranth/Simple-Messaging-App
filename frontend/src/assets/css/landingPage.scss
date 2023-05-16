@@ -1,0 +1,77 @@
+@import './format.scss';
+
+// styling message boox
+.messageMain {
+    width: 190px;
+    height: 412px;
+    padding: 30px 10px;
+    border-radius: 35px;
+}
+
+.messageHeader {
+    margin-bottom: 10px;
+}
+
+.split{
+    display: flex;
+    gap: 5px;
+}
+.btnType3{
+    width: max-content;
+    height: 20px;
+    border: none;
+    outline: none;
+    background-color: $primaryColor;
+    color: $bgColor;
+    @extend %flexCenter;
+    gap: 5px;
+    border-radius: 7px;
+    padding: 10px;
+    font-size: $smallest;
+    font-weight: $bold;
+    cursor: pointer;
+}
+.logout{
+    width: max-content;
+    height: 20px;
+    border: none;
+    outline: none;
+    background-color: $primaryColor;
+    color: $bgColor;
+    @extend %flexCenter;
+    float: right;
+    gap: 5px;
+    border-radius: 7px;
+    padding: 10px;
+    font-size: $smallest;
+    font-weight: $bold;
+    cursor: pointer;
+}
+.typeMessage {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.messageInput{
+    width: 100%;
+    margin-bottom: 5px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    height: 20px;
+}
+
+.messageContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.messageBox {
+    width: 100%;
+    height: 160px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 5px 5px;
+    overflow-wrap: break-word;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}

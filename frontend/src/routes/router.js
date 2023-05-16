@@ -2,7 +2,7 @@ import ForgotPassword from "../pages/ForgotPassword";
 import ForgotPasswordOtp from "../pages/ForgotPasswordOtp";
 import ForgotPasswordReset from "../pages/ForgotPasswordReset";
 import LoginPage from "../pages/LoginPage";
-import LogoutPage from "../pages/LogoutPage";
+import LandingPage from "../pages/LandingPage";
 import RegisterPage from "../pages/RegisterPage";
 import RegisterPageOtp from "../pages/RegisterPageOtp";
 import WelcomePage from "../pages/WelcomePage";
@@ -19,6 +19,6 @@ export const routes = [
 ]
 
 export const protectedRoutes=[
-    { id: 1, path: "/welcome", element: <LogoutPage /> },
-    { id: 2, path: "*", element: <LogoutPage /> },
+    { id: 1, path: "/welcome", element: <LandingPage /> },
+    { id: 2, path: "*", element: <LandingPage /> },
 ]

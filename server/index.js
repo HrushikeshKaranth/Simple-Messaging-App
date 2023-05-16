@@ -1,4 +1,3 @@
-
 const express = require('express');
 const app = express();
 const http = require('http');
@@ -9,6 +8,7 @@ app.use(cors());
 
 // creating server
 const server = http.createServer(app);
+// creating instance of Server class from socket.io
 const io = new Server(server, {
     cors: {
         origin: 'http://localhost:3000',

@@ -3,13 +3,15 @@ import { Icon } from '@iconify/react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../helpers/context';
 import { io } from 'socket.io-client'
+import '../assets/css/landingPage.css'
 const socket = io.connect('http://localhost:3001');// creating connection to server
 //-----
-function LogoutPage() {
+function LandingPage() {
     // navigation
     let navigate = useNavigate()
 
     // states
+    const [room, setRoom] = useState("")
     const [message, setMessage] = useState("")
     const [messageReceived, setMessageReceived] = useState([])
     const [login, setLogin] = useContext(AuthContext)
@@ -23,7 +25,7 @@ function LogoutPage() {
     // listening to incoming messages
     useEffect(() => {
         socket.on('receive_message', (data) => {
-            setMessageReceived( prev => [...prev, data.message]);
+            setMessageReceived(prev => [...prev, data.message]);
         });
     }, [socket])
     console.log(messageReceived);
@@ -40,7 +42,7 @@ function LogoutPage() {
     //logs
 
     return (
-        <main className='topAlign messageMain'>
+        <main className='messageMain'>
             {/* header section */}
             <header className='header messageHeader'>
                 <Icon icon="ic:round-keyboard-backspace" className='mb5 pointer' onClick={() => { navigate('/login') }} />
@@ -48,27 +50,39 @@ function LogoutPage() {
                 <h4>Save all your work and Logout!</h4>
             </header>
             {/* sending message */}
-            <section className='typeMessage'>
-                <input type="text" className='messageInput' placeholder='Type Message'
-                    value={message}
-                    onChange={(e) => { setMessage(e.target.value) }} 
-                    onKeyPress={(e)=>{e.key === 'Enter' && sendMessage();}}/>
-                <button className='btnType2' onClick={sendMessage}>Send </button>
-            </section>
+            <div className='typeMessage'>
+                <div className='split'>
+                    <input type="text" className='messageInput' placeholder='Type Room name of id'
+                        value={room}
+                        onChange={(e) => { setRoom(e.target.value) }}
+                    // onKeyPress={(e) => { e.key === 'Enter' && sendRoom(); }} 
+                    />
+                    <button className='btnType3' onClick={sendMessage}>Join</button>
+                </div>
+                <div className='split'>
+                    <input type="text" className='messageInput' placeholder='Type Message'
+                        value={message}
+                        onChange={(e) => { setMessage(e.target.value) }}
+                        onKeyPress={(e) => { e.key === 'Enter' && sendMessage(); }} />
+                    <button className='btnType3' onClick={sendMessage}>Send </button>
+
+                </div>
+            </div>
             {/* displaying received message  */}
-            <section>
-                <h3>Message:</h3>
-                <h4 className='messageBox'>{messageReceived.map((msg) => { return msg })}</h4>
-            </section>
+            <div className='messageContainer'>
+                <h4>Room Id:</h4>
+                <h4>Message:</h4>
+                <div className='messageBox'>{messageReceived.map((msg) => { return <h4>{msg}</h4> })}</div>
+            </div>
             {/* Logout */}
-            <section>
-                <button className='btnType2 my5'
+            <div>
+                <button className='my5 logout'
                     onClick={handleLogout}
                 >Logout</button>
-            </section>
+            </div>
 
         </main>
     )
 }
 
-export default LogoutPage
+export default LandingPage
