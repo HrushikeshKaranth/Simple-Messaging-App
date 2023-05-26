@@ -1,5 +1,5 @@
-# DoozieSoft-Technical-round
-DoozieSoft - Technical round
+# Simple Messaging App
+Simple Messaging App
 ## Requirements needed to run this project 👇
 + Node JS Ver(16.17.0 or Greater) - (React JS)
 + VS Code (optional, use your preferred IDE)
